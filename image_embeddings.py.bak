@@ -2,9 +2,9 @@ import cv2
 import os
 import pickle as pkl
 from tensorflow.keras.models import Model
-from tensorflow.keras.applications.efficientnet import EfficientNetB0, preprocess_input
+from tensorflow.keras.applications.efficientnet import EfficientNetB3, preprocess_input
 
-model = EfficientNetB0(include_top=True)
+model = EfficientNetB3(include_top=True)
 new_model = Model(inputs=model.input, outputs=model.layers[-3].output)
 
 def save_image_embeddings(phase):

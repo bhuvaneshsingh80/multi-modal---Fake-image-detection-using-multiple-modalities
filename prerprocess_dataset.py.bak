@@ -52,8 +52,8 @@ def tokenize(text):
     return ' '.join(words)
 
 def process_dataset(phase):
-    f = open('/mediaeval2016/' + phase + '_posts.txt', encoding="utf8")
-    images_list = os.listdir('/mediaeval2016/images_' + phase)
+    f = open('C:/Users/singhbhu/Desktop/mediaeval2016/' + phase + '_posts.txt', encoding="utf8")
+    images_list = os.listdir('C:/Users/singhbhu/Desktop/mediaeval2016/images_' + phase)
     filtered_images = [img for img in images_list if (img.endswith('.png') or img.endswith('.jpg') or img.endswith('.jpeg'))]
     filtered_images_without_format = [img.split(".")[0] for img in filtered_images]
     images_dict = dict(zip(filtered_images_without_format, filtered_images))
@@ -91,11 +91,11 @@ def process_dataset(phase):
                 else:
                     processed_tweet.append([original_tweet_text, tweet_text, images_dict[image], 1])
 
-    pkl.dump(processed_tweet, open('/temp/' + phase + '_dataset.pkl', 'wb'))
+    pkl.dump(processed_tweet, open('C:/Users/singhbhu/Desktop/temp/' + phase + '_dataset.pkl', 'wb'))
     print(f"Tweets not in English in {phase} set:", ct)
     return
 
 
-if __name__ == '__main__':
+#if __name__ == '__main__':
 process_dataset('train')
-process_dataset('test')
+#process_dataset('test')
